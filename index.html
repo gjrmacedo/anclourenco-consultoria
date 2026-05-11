@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ANCL — Portfólio de Recrutamento</title>
+  <title>Ana Lourenço Consultoria — Portfólio</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -116,6 +116,27 @@
       background: linear-gradient(180deg, rgba(55,138,221,0.06) 0%, var(--bg-card) 40%);
     }
 
+    .partnership-intro {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .plan-context {
+      background: var(--bg-secondary);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      margin: 12px 0 16px;
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+    .plan-context strong {
+      color: var(--text-primary);
+    }
+
     .plan-badge {
       display: inline-block;
       font-size: 10px;
@@ -206,6 +227,10 @@
       border: 1px solid var(--border);
       border-radius: var(--radius);
       overflow: hidden;
+    }
+    .regua-grid.regua-grid-5 {
+      grid-template-columns: 1.6fr 0.8fr 0.8fr 1.2fr 1.2fr;
+      min-width: 780px;
     }
     .regua-header {
       background: var(--bg-secondary);
@@ -326,11 +351,66 @@
       font-weight: 400;
     }
 
+    /* Workflow */
+    .workflow-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 640px) {
+      .workflow-grid { grid-template-columns: 1fr; }
+    }
+    .workflow-step {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .workflow-step:hover {
+      border-color: #3a3d46;
+      transform: translateY(-1px);
+    }
+    .workflow-step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .workflow-step-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .workflow-step-desc {
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .workflow-step-tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 6px;
+      margin-top: 10px;
+    }
+
     /* Policies */
     .policy-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 14px;
+    }
+    .policy-grid .policy-box.full-width {
+      grid-column: 1 / -1;
     }
     @media (max-width: 640px) {
       .policy-grid { grid-template-columns: 1fr; }
@@ -401,117 +481,197 @@
 
   <!-- Hero -->
   <div class="hero">
-    <span class="hero-badge">Portfólio 2025</span>
-    <h1>ANCL Recrutamento</h1>
-    <p>Soluções completas de recrutamento e seleção com transparência e resultado.</p>
+    <span class="hero-badge">Portfólio 2026</span>
+    <h1>Ana Lourenço Consultoria</h1>
+  </div>
+
+  <!-- Intro Parceria -->
+  <p class="section-label">Modelo de parceria</p>
+  <div class="partnership-intro">
+    <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.7;">
+      A Ana Lourenço Consultoria atua como <strong style="color: var(--text-primary);">parceira integrada</strong> da sua consultoria de recrutamento, 
+      estendendo a sua capacidade operacional em diferentes níveis de envolvimento. Escolha o plano que melhor se encaixa em cada projeto.
+    </p>
   </div>
 
   <!-- Planos -->
-  <p class="section-label">Planos de recrutamento</p>
+  <p class="section-label">Planos de parceria</p>
   <div class="plans-grid">
 
-    <!-- Light -->
+    <!-- Essencial -->
     <div class="plan-card">
-      <p class="plan-name">Light</p>
-      <p class="plan-sub">Operação completa, sem contato com cliente final</p>
+      <span class="plan-badge" style="background: var(--bg-warning); color: var(--text-warning);">Parceria operacional</span>
+      <p class="plan-name">Essencial</p>
+      <p class="plan-sub">Execução nos bastidores — sem exposição ao cliente final</p>
+      <div class="plan-context">
+        <p>A consultora recebe o detalhamento da vaga diretamente de um responsável da consultoria parceira e executa todo o processo de seleção e recrutamento de forma independente, entregando um shortlist qualificado. <strong>Não há envolvimento direto com o cliente final</strong> — todo contato é feito exclusivamente com a consultoria.</p>
+      </div>
+      <div class="plan-feature"><i class="ti ti-check"></i>Recebe briefing da consultoria parceira</div>
       <div class="plan-feature"><i class="ti ti-check"></i>Mapeamento de mercado</div>
       <div class="plan-feature"><i class="ti ti-check"></i>Triagem em 3 rodadas</div>
       <div class="plan-feature"><i class="ti ti-check"></i>Entrevistas por competência</div>
       <div class="plan-feature"><i class="ti ti-check"></i>Entrega do shortlist</div>
       <div class="plan-feature"><i class="ti ti-x off"></i><span class="disabled">Contato direto com cliente final</span></div>
-      <div class="plan-feature"><i class="ti ti-x off"></i><span class="disabled">Feedback e alinhamento com cliente</span></div>
-      <p class="etapas-title">Recebimento</p>
-      <div class="etapa-row"><div class="etapa-dot" style="background:#378ADD"></div><div class="etapa-info">Abertura da vaga</div><div class="etapa-pct">15%</div></div>
-      <div class="etapa-row"><div class="etapa-dot" style="background:#1D9E75"></div><div class="etapa-info">Entrega do shortlist</div><div class="etapa-pct">15%</div></div>
-      <div class="etapa-row"><div class="etapa-dot" style="background:#534AB7"></div><div class="etapa-info">Candidato contratado</div><div class="etapa-pct">70%</div></div>
+      <div class="plan-feature"><i class="ti ti-x off"></i><span class="disabled">Reports e relatórios ao cliente</span></div>
+      <div class="plan-feature"><i class="ti ti-x off"></i><span class="disabled">Agendamento de entrevistas candidato ↔ cliente</span></div>
     </div>
 
-    <!-- Pro -->
+    <!-- Profissional -->
     <div class="plan-card featured">
-      <span class="plan-badge">Recomendado</span>
-      <p class="plan-name">Pro</p>
-      <p class="plan-sub">Operação completa + relacionamento com cliente final</p>
+      <span class="plan-badge">Parceria completa</span>
+      <p class="plan-name">Profissional</p>
+      <p class="plan-sub">Atuação integrada — o cliente enxerga uma equipe só</p>
+      <div class="plan-context">
+        <p>A consultora abraça o processo como um todo: do alinhamento inicial ao acompanhamento final. Toda comunicação com o cliente final é feita sob a identidade e os padrões da consultoria parceira. <strong>Para o cliente, a Ana Lourenço Consultoria é parte da equipe da consultoria contratada.</strong></p>
+      </div>
+      <div class="plan-feature"><i class="ti ti-check"></i>Alinhamento direto com cliente final</div>
       <div class="plan-feature"><i class="ti ti-check"></i>Mapeamento de mercado</div>
       <div class="plan-feature"><i class="ti ti-check"></i>Triagem em 3 rodadas</div>
       <div class="plan-feature"><i class="ti ti-check"></i>Entrevistas por competência</div>
       <div class="plan-feature"><i class="ti ti-check"></i>Entrega do shortlist</div>
-      <div class="plan-feature"><i class="ti ti-check"></i>Contato direto com cliente final</div>
-      <div class="plan-feature"><i class="ti ti-check"></i>Feedback e alinhamento com cliente</div>
-      <p class="etapas-title">Recebimento</p>
+      <div class="plan-feature"><i class="ti ti-check"></i>Reports e relatórios ao cliente</div>
+      <div class="plan-feature"><i class="ti ti-check"></i>Agendamento de entrevistas candidato ↔ cliente final</div>
+      <div class="plan-feature"><i class="ti ti-check"></i>Feedback contínuo e alinhamento com cliente</div>
+      <div class="plan-feature"><i class="ti ti-check"></i>Comunicação sob identidade da consultoria parceira</div>
+    </div>
+
+  </div>
+
+  <!-- Fluxo de trabalho -->
+  <p class="section-label">Fluxo de trabalho</p>
+  <div class="workflow-grid">
+
+    <div class="workflow-step">
+      <div class="workflow-step-number" style="background: var(--bg-info); color: var(--text-info);">1</div>
+      <p class="workflow-step-title">Alinhamento / Repasse</p>
+      <p class="workflow-step-desc">Reunião de briefing com a consultoria parceira <strong style="color: var(--text-primary);">(Essencial)</strong> ou diretamente com o cliente final <strong style="color: var(--text-primary);">(Profissional)</strong>. Gera um artefato completo com todos os detalhes da vaga: perfil, requisitos, faixa salarial, cultura e expectativas.</p>
+      <span class="workflow-step-tag" style="background: var(--bg-info); color: var(--text-info);">Artefato: Briefing da vaga</span>
+    </div>
+
+    <div class="workflow-step">
+      <div class="workflow-step-number" style="background: var(--bg-warning); color: var(--text-warning);">2</div>
+      <p class="workflow-step-title">Mapeamento</p>
+      <p class="workflow-step-desc">Pesquisa ativa de mercado para identificar candidatos aderentes ao perfil. Essa entrega serve para <strong style="color: var(--text-primary);">validar se a vaga alinhada está com expectativas realistas</strong> antes de avançar para o processo seletivo completo.</p>
+      <span class="workflow-step-tag" style="background: var(--bg-warning); color: var(--text-warning);">Artefato: Mapa de candidatos</span>
+    </div>
+
+    <div class="workflow-step">
+      <div class="workflow-step-number" style="background: rgba(124, 110, 220, 0.15); color: #7c6edc;">3</div>
+      <p class="workflow-step-title">Recrutamento / Seleção / Entrevistas</p>
+      <p class="workflow-step-desc">Processo seletivo executado de ponta a ponta: abordagem dos candidatos, triagem em rodadas, entrevistas por competência e avaliação técnica/comportamental.</p>
+      <span class="workflow-step-tag" style="background: rgba(124, 110, 220, 0.15); color: #7c6edc;">Processo completo</span>
+    </div>
+
+    <div class="workflow-step">
+      <div class="workflow-step-number" style="background: var(--bg-success); color: var(--text-success);">4</div>
+      <p class="workflow-step-title">Entrega (Shortlist)</p>
+      <p class="workflow-step-desc">Relatório final com <strong style="color: var(--text-primary);">2 a 3 candidatos</strong> dentro do perfil alinhado, seguindo o padrão visual e de comunicação da consultoria parceira, pronto para apreciação do cliente final.</p>
+      <span class="workflow-step-tag" style="background: var(--bg-success); color: var(--text-success);">Artefato: Relatório shortlist</span>
+    </div>
+
+  </div>
+
+  <!-- Estrutura de pagamento -->
+  <p class="section-label">Estrutura de pagamento</p>
+  <div class="policy-box" style="margin-bottom: 0;">
+    <p class="policy-title"><i class="ti ti-receipt-2"></i>Etapas de recebimento — válido para ambos os planos</p>
+    <div class="payment-stages">
       <div class="etapa-row"><div class="etapa-dot" style="background:#378ADD"></div><div class="etapa-info">Abertura da vaga</div><div class="etapa-pct">15%</div></div>
       <div class="etapa-row"><div class="etapa-dot" style="background:#1D9E75"></div><div class="etapa-info">Entrega do shortlist</div><div class="etapa-pct">15%</div></div>
       <div class="etapa-row"><div class="etapa-dot" style="background:#534AB7"></div><div class="etapa-info">Candidato contratado</div><div class="etapa-pct">70%</div></div>
     </div>
+    <p style="font-size: 12px; color: var(--text-secondary); margin-top: 14px; line-height: 1.6;">
+      Os percentuais acima incidem sobre o fee total da vaga (calculado pela régua de faixa salarial abaixo). 
+      A estrutura é a mesma para os planos Essencial e Profissional — o que muda é o percentual aplicado ao salário.
+    </p>
 
+    <!-- Exemplo prático -->
+    <div style="margin-top: 20px; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 16px;">
+      <p style="font-size: 12px; font-weight: 600; color: var(--text-primary); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.06em;">Exemplo prático — Vaga de R$ 11.000 (Plano Profissional)</p>
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; text-align: center;">
+        <div style="background: var(--bg-card); border-radius: var(--radius-sm); padding: 12px;">
+          <p style="font-size: 11px; color: var(--text-secondary); margin-bottom: 4px;">Abertura</p>
+          <p style="font-size: 18px; font-weight: 700; color: var(--text-info);">R$ 495</p>
+          <p style="font-size: 11px; color: var(--text-secondary);">15% do fee</p>
+        </div>
+        <div style="background: var(--bg-card); border-radius: var(--radius-sm); padding: 12px;">
+          <p style="font-size: 11px; color: var(--text-secondary); margin-bottom: 4px;">Shortlist</p>
+          <p style="font-size: 18px; font-weight: 700; color: var(--text-success);">R$ 495</p>
+          <p style="font-size: 11px; color: var(--text-secondary);">15% do fee</p>
+        </div>
+        <div style="background: var(--bg-card); border-radius: var(--radius-sm); padding: 12px;">
+          <p style="font-size: 11px; color: var(--text-secondary); margin-bottom: 4px;">Fechamento</p>
+          <p style="font-size: 18px; font-weight: 700; color: #7c6edc;">R$ 2.310</p>
+          <p style="font-size: 11px; color: var(--text-secondary);">70% do fee</p>
+        </div>
+      </div>
+      <p style="font-size: 12px; color: var(--text-secondary); margin-top: 12px; text-align: center;">Fee total da vaga: <strong style="color: var(--text-primary);">R$ 3.300</strong> (30% de R$ 11.000) &nbsp;|&nbsp; Compare com o Essencial: <strong style="color: var(--text-primary);">R$ 2.200</strong> (20%)</p>
+    </div>
   </div>
 
   <!-- Régua -->
   <p class="section-label">Régua de percentuais por faixa salarial</p>
   <div class="regua-wrapper">
-    <div class="regua-grid">
+    <div class="regua-grid regua-grid-5">
       <div class="regua-header">Faixa salarial</div>
-      <div class="regua-header center">Light</div>
-      <div class="regua-header center">Pro</div>
-      <div class="regua-header">Exemplo Pro</div>
+      <div class="regua-header center">Essencial</div>
+      <div class="regua-header center">Profissional</div>
+      <div class="regua-header">Exemplo Essencial</div>
+      <div class="regua-header">Exemplo Profissional</div>
+
+      <!-- Faixa mínima -->
+      <div class="regua-cell">
+        <span class="faixa-tag" style="background: rgba(158, 158, 158, 0.15); color: #bbb;">Faixa mínima</span>
+        <p class="faixa-range">Abaixo de R$ 5.000</p>
+        <p class="faixa-obs">Fee fixo independente do salário.</p>
+      </div>
+      <div class="regua-cell center"><p class="pct-num" style="color:#bbb; font-size: 1.1rem;">Fixo</p><p class="pct-sub">R$ 1.200</p></div>
+      <div class="regua-cell center"><p class="pct-num" style="color:#bbb; font-size: 1.1rem;">Fixo</p><p class="pct-sub">R$ 1.600</p></div>
+      <div class="regua-cell"><div class="exemplo-inner">Salário R$ 4.000<div class="exemplo-val">Fee total: R$ 1.200</div></div></div>
+      <div class="regua-cell"><div class="exemplo-inner">Salário R$ 4.000<div class="exemplo-val">Fee total: R$ 1.600</div></div></div>
 
       <!-- Faixa baixa -->
-      <div class="regua-cell">
+      <div class="regua-cell row-highlight">
         <span class="faixa-tag warning">Faixa baixa</span>
-        <p class="faixa-range">Até R$ 7.000</p>
-        <p class="faixa-obs">Percentual maior compensa ticket baixo. Vagas opcionais.</p>
+        <p class="faixa-range">R$ 5.000 – R$ 8.000</p>
+        <p class="faixa-obs">Percentual maior compensa ticket baixo.</p>
       </div>
-      <div class="regua-cell center"><p class="pct-num" style="color:#f0ad4e">25%</p><p class="pct-sub">do salário</p></div>
-      <div class="regua-cell center"><p class="pct-num" style="color:#f0ad4e">35%</p><p class="pct-sub">do salário</p></div>
-      <div class="regua-cell"><div class="exemplo-inner">Salário R$ 6.000<div class="exemplo-val">Fechamento: R$ 1.260<br>Total vaga: R$ 2.100</div></div></div>
+      <div class="regua-cell center row-highlight"><p class="pct-num" style="color:#f0ad4e">25%</p><p class="pct-sub">do salário</p></div>
+      <div class="regua-cell center row-highlight"><p class="pct-num" style="color:#f0ad4e">35%</p><p class="pct-sub">do salário</p></div>
+      <div class="regua-cell row-highlight"><div class="exemplo-inner">Salário R$ 6.000<div class="exemplo-val">Fee total: R$ 1.500</div></div></div>
+      <div class="regua-cell row-highlight"><div class="exemplo-inner">Salário R$ 6.000<div class="exemplo-val">Fee total: R$ 2.100</div></div></div>
 
       <!-- Faixa padrão -->
-      <div class="regua-cell row-highlight">
+      <div class="regua-cell">
         <span class="faixa-tag info">Faixa padrão</span>
-        <p class="faixa-range">R$ 7.000 – R$ 15.000</p>
+        <p class="faixa-range">R$ 8.000 – R$ 15.000</p>
         <p class="faixa-obs">Faixa ideal. Percentuais base do portfólio.</p>
       </div>
-      <div class="regua-cell center row-highlight"><p class="pct-num" style="color:#64b5f6">20%</p><p class="pct-sub">do salário</p></div>
-      <div class="regua-cell center row-highlight"><p class="pct-num" style="color:#64b5f6">30%</p><p class="pct-sub">do salário</p></div>
-      <div class="regua-cell row-highlight"><div class="exemplo-inner">Salário R$ 11.000<div class="exemplo-val">Fechamento: R$ 2.310<br>Total vaga: R$ 3.300</div></div></div>
+      <div class="regua-cell center"><p class="pct-num" style="color:#64b5f6">20%</p><p class="pct-sub">do salário</p></div>
+      <div class="regua-cell center"><p class="pct-num" style="color:#64b5f6">30%</p><p class="pct-sub">do salário</p></div>
+      <div class="regua-cell"><div class="exemplo-inner">Salário R$ 11.000<div class="exemplo-val">Fee total: R$ 2.200</div></div></div>
+      <div class="regua-cell"><div class="exemplo-inner">Salário R$ 11.000<div class="exemplo-val">Fee total: R$ 3.300</div></div></div>
 
       <!-- Faixa premium -->
-      <div class="regua-cell">
+      <div class="regua-cell row-highlight">
         <span class="faixa-tag success">Faixa premium</span>
-        <p class="faixa-range">Acima de R$ 15.000</p>
+        <p class="faixa-range">A partir de R$ 15.000</p>
         <p class="faixa-obs">Ticket alto compensa percentual menor.</p>
       </div>
-      <div class="regua-cell center"><p class="pct-num" style="color:#66bb6a">15%</p><p class="pct-sub">do salário</p></div>
-      <div class="regua-cell center"><p class="pct-num" style="color:#66bb6a">22%</p><p class="pct-sub">do salário</p></div>
-      <div class="regua-cell"><div class="exemplo-inner">Salário R$ 20.000<div class="exemplo-val">Fechamento: R$ 3.080<br>Total vaga: R$ 4.400</div></div></div>
+      <div class="regua-cell center row-highlight"><p class="pct-num" style="color:#66bb6a">15%</p><p class="pct-sub">do salário</p></div>
+      <div class="regua-cell center row-highlight"><p class="pct-num" style="color:#66bb6a">25%</p><p class="pct-sub">do salário</p></div>
+      <div class="regua-cell row-highlight"><div class="exemplo-inner">Salário R$ 20.000<div class="exemplo-val">Fee total: R$ 3.000</div></div></div>
+      <div class="regua-cell row-highlight"><div class="exemplo-inner">Salário R$ 20.000<div class="exemplo-val">Fee total: R$ 5.000</div></div></div>
     </div>
   </div>
 
-  <!-- Addons -->
-  <p class="section-label">Addons avulsos</p>
+  <p class="section-label">Serviços complementares</p>
   <div class="addons-grid">
     <div class="addon-card">
       <i class="ti ti-zoom-in addon-icon"></i>
       <p class="addon-name">Mapeamento de mercado</p>
       <p class="addon-desc">Pesquisa de perfis disponíveis para uma posição, sem processo de seleção</p>
       <p class="addon-price">A consultar <span>/ vaga</span></p>
-    </div>
-    <div class="addon-card">
-      <i class="ti ti-checklist addon-icon"></i>
-      <p class="addon-name">Revisão de shortlist</p>
-      <p class="addon-desc">Parecer técnico sobre candidatos já captados pelo cliente</p>
-      <p class="addon-price">A consultar <span>/ vaga</span></p>
-    </div>
-    <div class="addon-card">
-      <i class="ti ti-message-circle addon-icon"></i>
-      <p class="addon-name">Entrevista por competência</p>
-      <p class="addon-desc">Entrevista avulsa de candidatos já captados pelo cliente</p>
-      <p class="addon-price">A consultar <span>/ candidato</span></p>
-    </div>
-    <div class="addon-card">
-      <i class="ti ti-file-description addon-icon"></i>
-      <p class="addon-name">Descrição de cargo</p>
-      <p class="addon-desc">Estruturação do perfil da vaga com benchmark de mercado</p>
-      <p class="addon-price">A consultar <span>/ cargo</span></p>
     </div>
     <div class="addon-card">
       <i class="ti ti-chart-bar addon-icon"></i>
@@ -530,26 +690,27 @@
   <!-- Políticas -->
   <p class="section-label">Políticas</p>
   <div class="policy-grid">
-    <div class="policy-box">
+    <div class="policy-box full-width">
       <p class="policy-title"><i class="ti ti-ban"></i>Cancelamento</p>
       <div class="policy-row"><span class="policy-label">Antes do mapeamento</span><span class="policy-value">Sem cobrança</span></div>
       <div class="policy-row"><span class="policy-label">Após mapeamento</span><span class="policy-value">50% do shortlist</span></div>
       <div class="policy-row"><span class="policy-label">Após shortlist entregue</span><span class="policy-value">100% do shortlist</span></div>
       <div class="policy-row"><span class="policy-label">Reativação de vaga suspensa</span><span class="policy-value">= etapa de abertura</span></div>
     </div>
-    <div class="policy-box">
-      <p class="policy-title"><i class="ti ti-clock"></i>SLA e garantias</p>
-      <div class="policy-row"><span class="policy-label">Prazo de feedback</span><span class="policy-value">15 dias após shortlist</span></div>
-      <div class="policy-row"><span class="policy-label">Vaga sem retorno</span><span class="policy-value">Suspensão + slot liberado</span></div>
-      <div class="policy-row"><span class="policy-label">Candidato sai na garantia</span><span class="policy-value">Reprocesso com 50% desconto</span></div>
+    <div class="policy-box full-width">
+      <p class="policy-title"><i class="ti ti-clock"></i>SLA de entrega</p>
+      <div class="policy-row"><span class="policy-label">Entrega de mapeamento</span><span class="policy-value">10 dias após início</span></div>
+      <div class="policy-row"><span class="policy-label">Entrega de relatório</span><span class="policy-value">20 dias após início</span></div>
+      <div class="policy-row"><span class="policy-label">Comunicação de imprevistos</span><span class="policy-value">Mín. 3 dias de antecedência</span></div>
+      <div class="policy-row"><span class="policy-label">Vaga sem retorno após shortlist (30 dias)</span><span class="policy-value">Suspensão + 10% do valor restante</span></div>
+    </div>
+    <div class="policy-box full-width">
+      <p class="policy-title"><i class="ti ti-shield-check"></i>Garantias</p>
+      <div class="policy-row"><span class="policy-label">Vagas abaixo de R$ 5.000</span><span class="policy-value">30 dias de garantia</span></div>
+      <div class="policy-row"><span class="policy-label">Reprocesso (abaixo de R$ 5.000)</span><span class="policy-value">50% desconto para 90 dias</span></div>
+      <div class="policy-row"><span class="policy-label">Vagas acima de R$ 5.000</span><span class="policy-value">90 dias de garantia</span></div>
       <div class="policy-row"><span class="policy-label">Gatilho de fechamento</span><span class="policy-value">Assinatura do contrato</span></div>
     </div>
-  </div>
-
-  <!-- Aviso -->
-  <div class="aviso">
-    <i class="ti ti-alert-triangle"></i>
-    <div>Faixa baixa (35% Pro) supera o teto de 30% sinalizado pela consultoria. Se não for aceito, a alternativa recomendada é simplesmente recusar vagas abaixo de R$ 7.000.</div>
   </div>
 
   <!-- Footer -->
