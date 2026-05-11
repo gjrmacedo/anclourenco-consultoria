@@ -1,0 +1,192 @@
+
+<style>
+  .root { padding: 1.5rem 0; font-family: var(--font-sans); }
+  .section-label { font-size: 12px; font-weight: 500; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin: 2rem 0 12px; }
+  .section-label:first-child { margin-top: 0; }
+
+  /* Planos */
+  .plans-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .plan-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1.25rem; }
+  .plan-card.featured { border: 2px solid #378ADD; }
+  .plan-badge { display: inline-block; font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: var(--border-radius-md); margin-bottom: 10px; background: var(--color-background-info); color: var(--color-text-info); }
+  .plan-name { font-size: 18px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 4px; }
+  .plan-sub { font-size: 12px; color: var(--color-text-secondary); margin: 0 0 8px; }
+  .plan-divider { border: none; border-top: 0.5px solid var(--color-border-tertiary); margin: 12px 0; }
+  .plan-feature { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--color-text-secondary); margin-bottom: 7px; line-height: 1.4; }
+  .plan-feature i { font-size: 15px; color: #1D9E75; margin-top: 1px; flex-shrink: 0; }
+  .plan-feature i.off { color: var(--color-text-secondary); opacity: 0.35; }
+  .etapas-title { font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin: 12px 0 8px; }
+  .etapa-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .etapa-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .etapa-info { flex: 1; font-size: 12px; color: var(--color-text-secondary); }
+  .etapa-pct { font-size: 12px; font-weight: 500; color: var(--color-text-primary); }
+
+  /* Régua */
+  .regua-grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1.6fr; gap: 0; border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); overflow: hidden; }
+  .regua-header { background: var(--color-background-secondary); font-size: 11px; font-weight: 500; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 0.06em; padding: 8px 14px; }
+  .regua-header.center { text-align: center; }
+  .regua-cell { padding: 14px; border-top: 0.5px solid var(--color-border-tertiary); display: flex; flex-direction: column; justify-content: center; }
+  .regua-cell.center { align-items: center; text-align: center; }
+  .faixa-tag { display: inline-block; font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: var(--border-radius-md); margin-bottom: 5px; }
+  .faixa-range { font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 3px; }
+  .faixa-obs { font-size: 11px; color: var(--color-text-secondary); margin: 0; line-height: 1.4; }
+  .pct-num { font-size: 20px; font-weight: 500; margin: 0; }
+  .pct-sub { font-size: 11px; color: var(--color-text-secondary); margin: 2px 0 0; }
+  .exemplo-inner { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 8px 10px; font-size: 11px; color: var(--color-text-secondary); line-height: 1.5; }
+  .exemplo-val { font-size: 12px; font-weight: 500; color: var(--color-text-primary); margin-top: 3px; }
+
+  /* Addons */
+  .addons-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; }
+  .addon-card { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 1rem; }
+  .addon-icon { font-size: 20px; color: #534AB7; margin-bottom: 8px; }
+  .addon-name { font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px; }
+  .addon-desc { font-size: 12px; color: var(--color-text-secondary); line-height: 1.4; margin-bottom: 8px; }
+  .addon-price { font-size: 15px; font-weight: 500; color: var(--color-text-primary); }
+  .addon-price span { font-size: 11px; color: var(--color-text-secondary); font-weight: 400; }
+
+  /* Políticas */
+  .policy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .policy-box { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 1rem 1.25rem; }
+  .policy-title { font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 10px; display: flex; align-items: center; gap: 6px; }
+  .policy-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; font-size: 12px; padding: 5px 0; border-bottom: 0.5px solid var(--color-border-tertiary); }
+  .policy-row:last-child { border-bottom: none; }
+  .policy-label { color: var(--color-text-secondary); flex: 1; }
+  .policy-value { font-weight: 500; color: var(--color-text-primary); text-align: right; flex-shrink: 0; }
+
+  .aviso { display: flex; align-items: flex-start; gap: 10px; background: var(--color-background-warning); border-radius: var(--border-radius-md); padding: 0.75rem 1rem; font-size: 12px; color: var(--color-text-warning); margin-top: 10px; line-height: 1.5; }
+</style>
+
+<div class="root">
+
+  <p class="section-label">Planos de recrutamento</p>
+  <div class="plans-grid">
+    <div class="plan-card">
+      <p class="plan-name">Light</p>
+      <p class="plan-sub">Operação completa, sem contato com cliente final</p>
+      <div class="plan-feature"><i class="ti ti-check" aria-hidden="true"></i>Mapeamento de mercado</div>
+      <div class="plan-feature"><i class="ti ti-check" aria-hidden="true"></i>Triagem em 3 rodadas</div>
+      <div class="plan-feature"><i class="ti ti-check" aria-hidden="true"></i>Entrevistas por competência</div>
+      <div class="plan-feature"><i class="ti ti-check" aria-hidden="true"></i>Entrega do shortlist</div>
+      <div class="plan-feature"><i class="ti ti-x off" aria-hidden="true"></i><span style="opacity:.45">Contato direto com cliente final</span></div>
+      <div class="plan-feature"><i class="ti ti-x off" aria-hidden="true"></i><span style="opacity:.45">Feedback e alinhamento com cliente</span></div>
+      <p class="etapas-title">Recebimento</p>
+      <div class="etapa-row"><div class="etapa-dot" style="background:#378ADD"></div><div class="etapa-info">Abertura da vaga</div><div class="etapa-pct">15%</div></div>
+      <div class="etapa-row"><div class="etapa-dot" style="background:#1D9E75"></div><div class="etapa-info">Entrega do shortlist</div><div class="etapa-pct">15%</div></div>
+      <div class="etapa-row"><div class="etapa-dot" style="background:#534AB7"></div><div class="etapa-info">Candidato contratado</div><div class="etapa-pct">70%</div></div>
+    </div>
+    <div class="plan-card featured">
+      <span class="plan-badge">Recomendado</span>
+      <p class="plan-name">Pro</p>
+      <p class="plan-sub">Operação completa + relacionamento com cliente final</p>
+      <div class="plan-feature"><i class="ti ti-check" aria-hidden="true"></i>Mapeamento de mercado</div>
+      <div class="plan-feature"><i class="ti ti-check" aria-hidden="true"></i>Triagem em 3 rodadas</div>
+      <div class="plan-feature"><i class="ti ti-check" aria-hidden="true"></i>Entrevistas por competência</div>
+      <div class="plan-feature"><i class="ti ti-check" aria-hidden="true"></i>Entrega do shortlist</div>
+      <div class="plan-feature"><i class="ti ti-check" aria-hidden="true"></i>Contato direto com cliente final</div>
+      <div class="plan-feature"><i class="ti ti-check" aria-hidden="true"></i>Feedback e alinhamento com cliente</div>
+      <p class="etapas-title">Recebimento</p>
+      <div class="etapa-row"><div class="etapa-dot" style="background:#378ADD"></div><div class="etapa-info">Abertura da vaga</div><div class="etapa-pct">15%</div></div>
+      <div class="etapa-row"><div class="etapa-dot" style="background:#1D9E75"></div><div class="etapa-info">Entrega do shortlist</div><div class="etapa-pct">15%</div></div>
+      <div class="etapa-row"><div class="etapa-dot" style="background:#534AB7"></div><div class="etapa-info">Candidato contratado</div><div class="etapa-pct">70%</div></div>
+    </div>
+  </div>
+
+  <p class="section-label">Régua de percentuais por faixa salarial</p>
+  <div class="regua-grid">
+    <div class="regua-header">Faixa salarial</div>
+    <div class="regua-header center">Light</div>
+    <div class="regua-header center">Pro</div>
+    <div class="regua-header">Exemplo Pro</div>
+
+    <div class="regua-cell">
+      <span class="faixa-tag" style="background:var(--color-background-warning);color:var(--color-text-warning);align-self:flex-start">Faixa baixa</span>
+      <p class="faixa-range">Até R$ 7.000</p>
+      <p class="faixa-obs">Percentual maior compensa ticket baixo. Vagas opcionais.</p>
+    </div>
+    <div class="regua-cell center"><p class="pct-num" style="color:#BA7517">25%</p><p class="pct-sub">do salário</p></div>
+    <div class="regua-cell center"><p class="pct-num" style="color:#BA7517">35%</p><p class="pct-sub">do salário</p></div>
+    <div class="regua-cell"><div class="exemplo-inner">Salário R$ 6.000<div class="exemplo-val">Fechamento: R$ 1.260<br>Total vaga: R$ 2.100</div></div></div>
+
+    <div class="regua-cell" style="background:var(--color-background-info);background:color-mix(in srgb, var(--color-background-info) 30%, transparent)">
+      <span class="faixa-tag" style="background:var(--color-background-info);color:var(--color-text-info);align-self:flex-start">Faixa padrão</span>
+      <p class="faixa-range">R$ 7.000 – R$ 15.000</p>
+      <p class="faixa-obs">Faixa ideal. Percentuais base do portfólio.</p>
+    </div>
+    <div class="regua-cell center" style="background:color-mix(in srgb, var(--color-background-info) 15%, transparent)"><p class="pct-num" style="color:#185FA5">20%</p><p class="pct-sub">do salário</p></div>
+    <div class="regua-cell center" style="background:color-mix(in srgb, var(--color-background-info) 15%, transparent)"><p class="pct-num" style="color:#185FA5">30%</p><p class="pct-sub">do salário</p></div>
+    <div class="regua-cell" style="background:color-mix(in srgb, var(--color-background-info) 15%, transparent)"><div class="exemplo-inner">Salário R$ 11.000<div class="exemplo-val">Fechamento: R$ 2.310<br>Total vaga: R$ 3.300</div></div></div>
+
+    <div class="regua-cell">
+      <span class="faixa-tag" style="background:var(--color-background-success);color:var(--color-text-success);align-self:flex-start">Faixa premium</span>
+      <p class="faixa-range">Acima de R$ 15.000</p>
+      <p class="faixa-obs">Ticket alto compensa percentual menor.</p>
+    </div>
+    <div class="regua-cell center"><p class="pct-num" style="color:#0F6E56">15%</p><p class="pct-sub">do salário</p></div>
+    <div class="regua-cell center"><p class="pct-num" style="color:#0F6E56">22%</p><p class="pct-sub">do salário</p></div>
+    <div class="regua-cell"><div class="exemplo-inner">Salário R$ 20.000<div class="exemplo-val">Fechamento: R$ 3.080<br>Total vaga: R$ 4.400</div></div></div>
+  </div>
+
+  <p class="section-label">Addons avulsos</p>
+  <div class="addons-grid">
+    <div class="addon-card">
+      <i class="ti ti-zoom-in addon-icon" aria-hidden="true"></i>
+      <p class="addon-name">Mapeamento de mercado</p>
+      <p class="addon-desc">Pesquisa de perfis disponíveis para uma posição, sem processo de seleção</p>
+      <p class="addon-price">A consultar <span>/ vaga</span></p>
+    </div>
+    <div class="addon-card">
+      <i class="ti ti-checklist addon-icon" aria-hidden="true"></i>
+      <p class="addon-name">Revisão de shortlist</p>
+      <p class="addon-desc">Parecer técnico sobre candidatos já captados pelo cliente</p>
+      <p class="addon-price">A consultar <span>/ vaga</span></p>
+    </div>
+    <div class="addon-card">
+      <i class="ti ti-message-circle addon-icon" aria-hidden="true"></i>
+      <p class="addon-name">Entrevista por competência</p>
+      <p class="addon-desc">Entrevista avulsa de candidatos já captados pelo cliente</p>
+      <p class="addon-price">A consultar <span>/ candidato</span></p>
+    </div>
+    <div class="addon-card">
+      <i class="ti ti-file-description addon-icon" aria-hidden="true"></i>
+      <p class="addon-name">Descrição de cargo</p>
+      <p class="addon-desc">Estruturação do perfil da vaga com benchmark de mercado</p>
+      <p class="addon-price">A consultar <span>/ cargo</span></p>
+    </div>
+    <div class="addon-card">
+      <i class="ti ti-chart-bar addon-icon" aria-hidden="true"></i>
+      <p class="addon-name">Benchmark salarial</p>
+      <p class="addon-desc">Pesquisa de faixas salariais para posição e segmento específicos</p>
+      <p class="addon-price">A consultar <span>/ relatório</span></p>
+    </div>
+    <div class="addon-card">
+      <i class="ti ti-user-check addon-icon" aria-hidden="true"></i>
+      <p class="addon-name">Onboarding executivo</p>
+      <p class="addon-desc">Acompanhamento do candidato + cliente nos primeiros 30, 60 ou 90 dias</p>
+      <p class="addon-price">R$ 250 <span>/ sessão</span></p>
+    </div>
+  </div>
+
+  <p class="section-label">Políticas</p>
+  <div class="policy-grid">
+    <div class="policy-box">
+      <p class="policy-title"><i class="ti ti-ban" style="font-size:15px" aria-hidden="true"></i>Cancelamento</p>
+      <div class="policy-row"><span class="policy-label">Antes do mapeamento</span><span class="policy-value">Sem cobrança</span></div>
+      <div class="policy-row"><span class="policy-label">Após mapeamento</span><span class="policy-value">50% do shortlist</span></div>
+      <div class="policy-row"><span class="policy-label">Após shortlist entregue</span><span class="policy-value">100% do shortlist</span></div>
+      <div class="policy-row"><span class="policy-label">Reativação de vaga suspensa</span><span class="policy-value">= etapa de abertura</span></div>
+    </div>
+    <div class="policy-box">
+      <p class="policy-title"><i class="ti ti-clock" style="font-size:15px" aria-hidden="true"></i>SLA e garantias</p>
+      <div class="policy-row"><span class="policy-label">Prazo de feedback</span><span class="policy-value">15 dias após shortlist</span></div>
+      <div class="policy-row"><span class="policy-label">Vaga sem retorno</span><span class="policy-value">Suspensão + slot liberado</span></div>
+      <div class="policy-row"><span class="policy-label">Candidato sai na garantia</span><span class="policy-value">Reprocesso com 50% desconto</span></div>
+      <div class="policy-row"><span class="policy-label">Gatilho de fechamento</span><span class="policy-value">Assinatura do contrato</span></div>
+    </div>
+  </div>
+
+  <div class="aviso">
+    <i class="ti ti-alert-triangle" style="font-size:18px;flex-shrink:0;margin-top:1px" aria-hidden="true"></i>
+    <div>Faixa baixa (35% Pro) supera o teto de 30% sinalizado pela consultoria. Se não for aceito, a alternativa recomendada é simplesmente recusar vagas abaixo de R$ 7.000.</div>
+  </div>
+
+</div>
